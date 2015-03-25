@@ -7,6 +7,13 @@
 # an argument, assume it is the name of a station and play it. Use
 # Ctrl-C to stop listening.
 
+function cleanup
+{
+  # Kill all children
+  kill -- -$$
+}
+
+trap cleanup EXIT INT
 
 # Figure out terminal width to avoid wrapping lines.
 COLUMNS=$(tput cols)
